@@ -20,7 +20,7 @@ app.get('/ver', (req, res) => {
       timestampsInSnapshots: true
     });
     var wholeData = []
-	db.collection('Regitro').orderBy('fecha', 'asc').get()
+	db.collection('Registro').orderBy('fecha', 'asc').get()
     .then(snapshot => {
       snapshot.forEach(doc => {
       
@@ -41,13 +41,13 @@ app.post('/insertar', (req, res)=>{
     });
     db.collection('Registro').add({
       dia: req.body.dia,
+      fecha: new Date(),
       sis: req.body.sis,
-      fecha: new Date()
     });
     res.send({
       dia: req.body.dia,
-      sis: req.body.sis,
       fecha: new Date(),
+      sis: req.body.sis,
       status: 'Valores insertados!'
   })
 })
