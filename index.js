@@ -40,14 +40,14 @@ app.post('/insertar', (req, res)=>{
       timestampsInSnapshots: true
     });
     db.collection('Registro').add({
-      dia: req.body.dia,
       fecha: new Date(),
       sis: req.body.sis,
+      dia: req.body.dia
     });
     res.send({
-      dia: req.body.dia,
       fecha: new Date(),
       sis: req.body.sis,
+      dia: req.body.dia,
       status: 'Valores insertados!'
   })
 })
